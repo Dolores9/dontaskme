@@ -43,11 +43,11 @@ export default function Geofencing({
     if (isWithinGeofence(latitude, longitude)) {
       console.log("User is within geofence.");
       onGeofenceCheck();
-      Alert.alert("Je bent op school. Aan de slag!");
+      Alert.alert("Je bent op school, succes!");
     } else {
       console.log("User is outside geofence.");
       onGeofenceCheck();
-      Alert.alert("Je bent niet op school. Tijd om even te ontspannen?");
+      Alert.alert("Tijd om aan de slag te gaan?");
     }
 
     await AsyncStorage.setItem("lastGeofenceAlert", today);
