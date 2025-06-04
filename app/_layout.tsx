@@ -3,6 +3,8 @@ import { SQLiteDatabase, SQLiteProvider } from "expo-sqlite";
 import { StatusBar } from "expo-status-bar";
 import * as Notifications from "expo-notifications";
 import { useEffect } from "react";
+import Header from "./components/header"
+import { StyleSheet, View } from "react-native";
 
 const createDbIfNeeded = async (db: SQLiteDatabase) => {
   //
@@ -22,19 +24,32 @@ export default function RootLayout() {
   return (
     <>
       <SQLiteProvider databaseName="test.db" onInit={createDbIfNeeded}>
-        <Stack>
-          <Stack.Screen name="index" options={{ headerShown: false }} />
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="+not-found" />
-          <Stack.Screen
-            name="modal"
-            options={{
-              presentation: "modal",
+        <View style={styles.container}>
+          <Stack
+            screenOptions={{
+              headerShown: false, // verberg de standaard header
             }}
-          />
-        </Stack>
+          >
+            <Stack.Screen name="index" />
+            <Stack.Screen name="(tabs)" />
+            <Stack.Screen name="+not-found" />
+            <Stack.Screen
+              name="modal"
+              options={{
+                presentation: "modal",
+              }}
+            />
+          </Stack>
+        </View>
       </SQLiteProvider>
       <StatusBar style="auto" />
     </>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
+

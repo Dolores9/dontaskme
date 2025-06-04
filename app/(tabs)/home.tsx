@@ -11,6 +11,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useSQLiteContext } from "expo-sqlite";
 import useCurrentUserId from "../hooks/useAuth";
 import Geofencing from "../components/geofence";
+import { Image } from "react-native";
 
 export default function TabHome(props: {
   onStateChange: (arg0: string, arg1: null) => void;
@@ -39,6 +40,15 @@ export default function TabHome(props: {
     </TouchableOpacity>
   );
 
+  const headerLeft = () => (
+    <TouchableOpacity
+      onPress={() => router.push("/modal")}
+      style={{ marginRight: 10 }}
+    >
+      <Image source={require('../assets/logo.png')} resizeMode='contain' style={{ height: 10 }} />
+    </TouchableOpacity>
+  );
+
   const loadData = async () => {
     const result = await database.getAllAsync<{
       id: number;
@@ -53,6 +63,7 @@ export default function TabHome(props: {
   return (
     <View style={styles.container}>
       <Stack.Screen options={{ headerRight }} />
+      <Stack.Screen options={{ headerLeft }} />
       <FlatList
         data={data}
         renderItem={({

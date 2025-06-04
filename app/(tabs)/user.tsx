@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import { auth } from "../../firebaseConfig";
 import { router } from "expo-router";
 import { getAuth } from "firebase/auth";
+import Footer from "../components/footer";
 import {
   MaterialIcons,
   Feather,
@@ -56,7 +57,9 @@ export default function TabUser() {
       <TouchableOpacity style={styles.button} onPress={() => auth.signOut()}>
         <Text style={styles.buttonText}>Sign Out</Text>
       </TouchableOpacity>
+       <Footer />
     </View>
+    
   );
 }
 

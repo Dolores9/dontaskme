@@ -89,13 +89,13 @@ export default function ItemModal() {
           placeholder="Title"
           value={title}
           onChangeText={(text) => setTitle(text)}
-          style={styles.textInput}
+          style={styles.textTitle}
         />
         <TextInput
           placeholder="Description"
           value={description}
           onChangeText={(text) => setDescription(text)}
-          style={styles.textInput}
+          style={styles.textDescription}
         />
     </View>
       <View style={{ flex: 1, flexDirection: "row", gap: 20 }}>
@@ -130,14 +130,26 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
+    margin: 10,
+    padding: 10,
   },
-  textInput: {
+  textTitle: {
     borderWidth: 1,
     padding: 10,
+    margin: 5,
     width: 300,
     borderRadius: 5,
-    borderColor: "slategray",
-    color: "#5C6BC0",
+    borderColor: "lightgrey",
+    
+  },
+  textDescription: {
+    borderWidth: 1,
+    padding: 30,
+    margin: 5,
+    width: 300,
+    borderRadius: 5,
+    borderColor: "lightgrey",
+    
   },
   button: {
     height: 40,
@@ -146,13 +158,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 5,
     backgroundColor: "#5C6BC0",
+    margin: 10,
   },
   buttonText: {
     fontWeight: "bold",
     color: "white",
-  },
-  placeholder: {
-    color: "#5C6BC0",
   },
   card: {
     marginVertical: 10,
@@ -160,7 +170,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderRadius: 15,
     borderColor: "#ccc",
-    elevation: 5,
     marginBottom: 5,
     shadowColor: "#ccc",
     shadowOffset: { width: 0, height: 3 },
